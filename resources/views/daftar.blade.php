@@ -9,7 +9,7 @@
 
 <form>
 
-Nama: <br>
+Nama Panjang: <br>
 <input type="text" name="nama">
 <br><br>
 
