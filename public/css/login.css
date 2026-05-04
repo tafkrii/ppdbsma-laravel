@@ -101,4 +101,14 @@ h1 {
   text-decoration: none;
 }
 
+.alert-error {
+  background: #fef2f2;
+  border: 1.5px solid #fca5a5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 0.84rem;
+  color: #991b1b;
+}
+
 .alt a:hover { text-decoration: underline; }
