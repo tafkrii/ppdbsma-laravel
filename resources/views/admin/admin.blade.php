@@ -11,7 +11,7 @@
 
   <aside class="sidebar">
     <div class="sidebar-top">
-      <img src="img/logo.png" alt="Logo" class="logo" />
+      <img src="/logo.png" alt="Logo" class="logo" />
       <span class="app-name">PPDB Admin</span>
     </div>
     <nav class="nav">
@@ -37,6 +37,10 @@
       <h1>Dashboard Admin</h1>
     </div>
     <div class="content">
+
+      @if(session('success'))
+        <div class="alert-success">✅ {{ session('success') }}</div>
+      @endif
 
       <div class="cards">
         <div class="card">
@@ -66,6 +70,7 @@
               <th>Nama Lengkap</th>
               <th>Jalur</th>
               <th>Status</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -83,10 +88,26 @@
                     <span class="badge belum">Belum Daftar</span>
                   @endif
                 </td>
+                <td>
+                  @if($p->student)
+                    <div class="aksi">
+                      <!-- Tombol Edit -->
+                      <a href="/admin/edit/{{ $p->student->id }}" class="btn-icon edit" title="Edit Status">✏️</a>
+
+                      <!-- Tombol Delete -->
+                      <form method="POST" action="/admin/delete/{{ $p->student->id }}" onsubmit="return confirm('Yakin hapus data pendaftar ini?')">
+                        @csrf
+                        <button type="submit" class="btn-icon delete" title="Hapus Data">🗑️</button>
+                      </form>
+                    </div>
+                  @else
+                    —
+                  @endif
+                </td>
               </tr>
             @empty
               <tr>
-                <td colspan="6" class="empty">Belum ada data pendaftar</td>
+                <td colspan="7" class="empty">Belum ada data pendaftar</td>
               </tr>
             @endforelse
           </tbody>
