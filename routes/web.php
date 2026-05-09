@@ -16,12 +16,18 @@ Route::middleware('guest')->group(function () {
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Student
 Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/dashboard', [StudentController::class, 'dashboard']);
     Route::get('/form', [StudentController::class, 'form']);
     Route::post('/form', [StudentController::class, 'store']);
+    Route::get('/seleksi', [StudentController::class, 'seleksi']);
 });
 
+// Admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard']);
+    Route::get('/admin/edit/{id}', [AdminController::class, 'edit']);
+    Route::post('/admin/update/{id}', [AdminController::class, 'update']);
+    Route::post('/admin/delete/{id}', [AdminController::class, 'destroy']);
 });

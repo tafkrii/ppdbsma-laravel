@@ -29,6 +29,18 @@ class StudentController extends Controller
         return view('student.form');
     }
 
+    public function seleksi()
+    {
+        $user = Auth::user();
+        $student = Student::where('user_id', $user->id)->first();
+
+        if (!$student) {
+            return redirect('/dashboard')->with('info', 'Silakan isi form pendaftaran terlebih dahulu.');
+        }
+
+        return view('student.seleksi', compact('student'));
+    }
+
     public function store(Request $request)
     {
         $user = Auth::user();

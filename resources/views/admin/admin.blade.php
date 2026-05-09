@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin — PPDB Online</title>
+  <title>Admin — PPDB SMAN 2 Tanjung</title>
   <link rel="stylesheet" href="/css/admin.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
@@ -11,7 +11,7 @@
 
   <aside class="sidebar">
     <div class="sidebar-top">
-      <img src="/logo.png" alt="Logo" class="logo" />
+      <img src="img/logo.png" alt="Logo" class="logo" />
       <span class="app-name">PPDB Admin</span>
     </div>
     <nav class="nav">
@@ -92,12 +92,16 @@
                   @if($p->student)
                     <div class="aksi">
                       <!-- Tombol Edit -->
-                      <a href="/admin/edit/{{ $p->student->id }}" class="btn-icon edit" title="Edit Status">✏️</a>
+                      <a href="/admin/edit/{{ $p->student->id }}" class="btn-icon edit" title="Edit Status">
+                        <image src="img/edit.png" alt="Edit" width="20" height="20"/>
+                      </a>
 
                       <!-- Tombol Delete -->
                       <form method="POST" action="/admin/delete/{{ $p->student->id }}" onsubmit="return confirm('Yakin hapus data pendaftar ini?')">
                         @csrf
-                        <button type="submit" class="btn-icon delete" title="Hapus Data">🗑️</button>
+                        <button type="submit" class="btn-icon delete" title="Hapus Data">
+                          <image src="img/delete.png" alt="Hapus" width="20" height="20"/>
+                        </button>
                       </form>
                     </div>
                   @else

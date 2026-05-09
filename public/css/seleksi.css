@@ -7,9 +7,7 @@ body {
   background: #f0f6fc;
 }
 
-/* ==============================
-   SIDEBAR (sama seperti dashboard)
-   ============================== */
+/*SIDEBAR (sama seperti dashboard)*/
 
 .sidebar {
   width: 220px;
@@ -109,9 +107,7 @@ body {
 
 .btn-logout:hover { background: #2a4f7a; color: #fff; }
 
-/* ==============================
-   MAIN LAYOUT
-   ============================== */
+/*MAIN LAYOUT*/
 
 .main {
   margin-left: 220px;
@@ -133,38 +129,34 @@ body {
   min-height: calc(100vh - 100px);
 }
 
-/* ==============================
-   STATUS CARD (base)
-   ============================== */
+/*STATUS CARD (base)*/
 
 .status-card {
   border-radius: 14px;
   padding: 36px 32px;
-  max-width: 560px;
+  max-width: 1000px;
   width: 100%;
   text-align: center;
 }
 
 .status-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  font-size: 5rem;
+  margin-bottom: 1px;
 }
 
 .status-judul {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 14px;
   letter-spacing: 0.03em;
 }
 
 .status-text {
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   line-height: 1.7;
 }
 
-/* ==============================
-   BAGIAN DITERIMA (Hijau)
-   ============================== */
+/*BAGIAN DITERIMA (Hijau)*/
 
 .status-card.diterima {
   background: #f0fdf4;
@@ -179,9 +171,7 @@ body {
   color: #166534;
 }
 
-/* ==============================
-   BAGIAN DITOLAK (Merah)
-   ============================== */
+/*BAGIAN DITOLAK (Merah)*/
 
 .status-card.ditolak {
   background: #fef2f2;
@@ -196,9 +186,7 @@ body {
   color: #991b1b;
 }
 
-/* ==============================
-   BAGIAN PENDING (Abu-abu)
-   ============================== */
+/*BAGIAN PENDING (Abu-abu)*/
 
 .status-card.pending {
   background: #f8fafc;

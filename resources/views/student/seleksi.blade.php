@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Status Seleksi — PPDB Online</title>
+  <title>Status Seleksi | PPDB SMAN 2 Tanjung</title>
   <link rel="stylesheet" href="/css/seleksi.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
@@ -11,7 +11,7 @@
 
   <aside class="sidebar">
     <div class="sidebar-top">
-      <img src="/logo.png" alt="Logo" class="logo" />
+      <img src="img/logo.png" alt="Logo" class="logo" />
       <span class="app-name">PPDB Online</span>
     </div>
     <nav class="nav">
