@@ -15,7 +15,7 @@
     @endif
 
     <img src="img/logo.png" alt="Logo" class="logo" />
-    <h1>Login SPMB</h1>
+    <h1>Login PPDB</h1>
     <p class="sub">Masuk untuk melanjutkan pendaftaran</p>
 
     <form method="POST" action="/login">

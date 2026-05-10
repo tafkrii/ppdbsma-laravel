@@ -7,7 +7,9 @@ body {
   background: #f0f6fc;
 }
 
-/* SIDEBAR */
+/* ==============================
+   SIDEBAR
+   ============================== */
 .sidebar {
   width: 220px;
   background: #1e3a5f;
@@ -17,6 +19,9 @@ body {
   position: fixed;
   top: 0; left: 0;
   height: 100vh;
+  /* Transisi supaya animasi buka/tutup halus */
+  transition: transform 0.3s ease;
+  z-index: 100;
 }
 
 .sidebar-top {
@@ -26,23 +31,10 @@ body {
   margin-bottom: 32px;
 }
 
-.logo {
-  width: 36px; height: 36px;
-  object-fit: contain;
-}
+.logo { width: 36px; height: 36px; object-fit: contain; }
+.app-name { font-size: 0.95rem; font-weight: 600; color: #fff; }
 
-.app-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-}
+.nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
 
 .nav-item {
   padding: 10px 14px;
@@ -52,22 +44,12 @@ body {
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
-
 .nav-item:hover { background: #2a4f7a; color: #fff; }
 .nav-item.active { background: #3b8fd4; color: #fff; font-weight: 500; }
 
-/* SIDEBAR BOTTOM */
-.sidebar-bottom {
-  border-top: 1px solid #2a4f7a;
-  padding-top: 16px;
-}
+.sidebar-bottom { border-top: 1px solid #2a4f7a; padding-top: 16px; }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+.user-info { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 
 .avatar {
   width: 34px; height: 34px;
@@ -82,16 +64,8 @@ body {
   flex-shrink: 0;
 }
 
-.user-name {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-.user-role {
-  font-size: 0.73rem;
-  color: #7aa8cc;
-}
+.user-name { font-size: 0.82rem; font-weight: 500; color: #fff; }
+.user-role { font-size: 0.73rem; color: #7aa8cc; }
 
 .btn-logout {
   display: block;
@@ -102,26 +76,60 @@ body {
   color: #a8c4e0;
   text-decoration: none;
   border: 1px solid #2a4f7a;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
   transition: background 0.2s, color 0.2s;
 }
-
 .btn-logout:hover { background: #2a4f7a; color: #fff; }
 
-/* MAIN */
-.main {
-  margin-left: 220px;
-  flex: 1;
-  padding: 28px 32px;
-}
 
-.topbar h1 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a2a3a;
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+/* Class 'aktif' ditambah via JavaScript saat hamburger diklik */
+.overlay.aktif { display: block; }
+
+/* ==============================
+   MAIN CONTENT
+   ============================== */
+.main { margin-left: 220px; flex: 1; padding: 28px 32px; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 24px;
 }
 
-/* CARDS */
+.topbar h1 { font-size: 1.3rem; font-weight: 600; color: #1a2a3a; }
+
+/* ==============================
+   TOMBOL HAMBURGER (☰)
+   Default: disembunyikan di desktop
+   Hanya muncul di mobile via @media
+   ============================== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #1a2a3a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: #e0ecf8; }
+
+/* ==============================
+   CARDS
+   ============================== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -136,21 +144,13 @@ body {
   box-shadow: 0 2px 10px rgba(0,100,200,0.07);
 }
 
-.card-label {
-  font-size: 0.78rem;
-  color: #7a93a8;
-  margin-bottom: 8px;
-}
-
-.card-value {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a2a3a;
-}
-
+.card-label { font-size: 0.78rem; color: #7a93a8; margin-bottom: 8px; }
+.card-value { font-size: 1rem; font-weight: 600; color: #1a2a3a; }
 .card-value.pending { color: #f59e0b; }
 
-/* INFO BOX */
+/* ==============================
+   INFO BOX
+   ============================== */
 .info-box {
   background: #fff;
   border-radius: 12px;
@@ -159,24 +159,11 @@ body {
   max-width: 500px;
 }
 
-.info-title {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #1a2a3a;
-  margin-bottom: 12px;
-}
+.info-title { font-size: 0.92rem; font-weight: 600; color: #1a2a3a; margin-bottom: 12px; }
+.info-sub { font-size: 0.84rem; color: #4a6070; margin-top: 6px; }
 
-.steps {
-  padding-left: 18px;
-  margin-bottom: 20px;
-}
-
-.steps li {
-  font-size: 0.85rem;
-  color: #4a6070;
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
+.steps { padding-left: 18px; margin-bottom: 20px; }
+.steps li { font-size: 0.85rem; color: #4a6070; margin-bottom: 6px; line-height: 1.5; }
 
 .btn {
   display: inline-block;
@@ -192,5 +179,61 @@ body {
   text-decoration: none;
   transition: background 0.2s;
 }
-
 .btn:hover { background: #2d7bbf; }
+
+/* NOTIFICATIONS  */
+
+.alert-success {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.84rem;
+  color: #166534;
+}
+
+.alert-info {
+  background: #eff6ff;
+  border: 1.5px solid #93c5fd;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.84rem;
+  color: #1e40af;
+}
+
+@media (max-width: 768px) {
+
+  /* Sidebar disembunyikan ke kiri layar */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+    position: fixed;
+  }
+
+  /* Saat class 'aktif' ditambah JS, sidebar geser masuk */
+  .sidebar.aktif {
+    transform: translateX(0);
+  }
+
+  /* Tombol hamburger muncul di mobile */
+  .hamburger {
+    display: block;
+  }
+
+  /* Main tidak perlu margin kiri lagi */
+  .main {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  /* Cards jadi 1 kolom */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .info-box {
+    max-width: 100%;
+  }
+}

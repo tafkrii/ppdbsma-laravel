@@ -7,7 +7,16 @@ body {
   background: #f0f6fc;
 }
 
-/*SIDEBAR (sama seperti dashboard)*/
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+.overlay.aktif { display: block; }
+
+/* SIDEBAR  */
 
 .sidebar {
   width: 220px;
@@ -18,31 +27,31 @@ body {
   position: fixed;
   top: 0; left: 0;
   height: 100vh;
+  transition: transform 0.3s ease;
+  z-index: 100;
 }
 
-.sidebar-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
+.sidebar-top { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 32px; 
 }
-
-.logo {
-  width: 36px; height: 36px;
+.logo { 
+  width: 36px; 
+  height: 36px; 
   object-fit: contain;
+ }
+.app-name { 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  color: #fff; 
 }
-
-.app-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
+.nav { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+  flex: 1; 
 }
 
 .nav-item {
@@ -53,21 +62,11 @@ body {
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
-
 .nav-item:hover { background: #2a4f7a; color: #fff; }
 .nav-item.active { background: #3b8fd4; color: #fff; font-weight: 500; }
 
-.sidebar-bottom {
-  border-top: 1px solid #2a4f7a;
-  padding-top: 16px;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+.sidebar-bottom { border-top: 1px solid #2a4f7a; padding-top: 16px; }
+.user-info { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 
 .avatar {
   width: 34px; height: 34px;
@@ -82,16 +81,8 @@ body {
   flex-shrink: 0;
 }
 
-.user-name {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-.user-role {
-  font-size: 0.73rem;
-  color: #7aa8cc;
-}
+.user-name { font-size: 0.82rem; font-weight: 500; color: #fff; }
+.user-role { font-size: 0.73rem; color: #7aa8cc; }
 
 .btn-logout {
   display: block;
@@ -102,26 +93,41 @@ body {
   color: #a8c4e0;
   text-decoration: none;
   border: 1px solid #2a4f7a;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
   transition: background 0.2s, color 0.2s;
 }
-
 .btn-logout:hover { background: #2a4f7a; color: #fff; }
 
-/*MAIN LAYOUT*/
+/* MAIN DAN TOPBAR  */
 
-.main {
-  margin-left: 220px;
-  flex: 1;
-  padding: 28px 32px;
-}
+.main { margin-left: 220px; flex: 1; padding: 28px 32px; }
 
-.topbar h1 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a2a3a;
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 24px;
 }
 
+.topbar h1 { font-size: 1.3rem; font-weight: 600; color: #1a2a3a; }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #1a2a3a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.hamburger:hover { background: #e0ecf8; }
+
+/* STATUS CARD */
 .content {
   display: flex;
   align-items: center;
@@ -129,74 +135,51 @@ body {
   min-height: calc(100vh - 100px);
 }
 
-/*STATUS CARD (base)*/
-
 .status-card {
   border-radius: 14px;
   padding: 36px 32px;
-  max-width: 1000px;
+  max-width: 560px;
   width: 100%;
   text-align: center;
 }
 
-.status-icon {
-  font-size: 5rem;
-  margin-bottom: 1px;
-}
+.status-icon { font-size: 3rem; margin-bottom: 16px; }
+.status-judul { font-size: 1.3rem; font-weight: 600; margin-bottom: 14px; letter-spacing: 0.03em; }
+.status-text { font-size: 0.88rem; line-height: 1.7; }
 
-.status-judul {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 14px;
-  letter-spacing: 0.03em;
-}
+/* Bagian DITERIMA (Hijau) */
+.status-card.diterima { background: #f0fdf4; border: 2px solid #86efac; }
+.status-card.diterima .status-judul { color: #166534; }
+.status-card.diterima .status-text { color: #166534; }
 
-.status-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
+/* Bagian DITOLAK (Merah) */
+.status-card.ditolak { background: #fef2f2; border: 2px solid #fca5a5; }
+.status-card.ditolak .status-judul { color: #991b1b; }
+.status-card.ditolak .status-text { color: #991b1b; }
 
-/*BAGIAN DITERIMA (Hijau)*/
+/* Bagian PENDING (Abu-abu) */
+.status-card.pending { background: #f8fafc; border: 2px solid #cbd5e1; }
+.status-card.pending .status-judul { color: #475569; }
+.status-card.pending .status-text { color: #64748b; }
 
-.status-card.diterima {
-  background: #f0fdf4;
-  border: 2px solid #86efac;
-}
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 220px;
+    position: fixed;
+  }
 
-.status-card.diterima .status-judul {
-  color: #166534;
-}
+  .sidebar.aktif {
+    transform: translateX(0);
+  }
 
-.status-card.diterima .status-text {
-  color: #166534;
-}
+  .hamburger { display: block; }
 
-/*BAGIAN DITOLAK (Merah)*/
+  .main { margin-left: 0; padding: 16px; }
 
-.status-card.ditolak {
-  background: #fef2f2;
-  border: 2px solid #fca5a5;
-}
+  .content { min-height: unset; padding: 8px 0; }
 
-.status-card.ditolak .status-judul {
-  color: #991b1b;
-}
-
-.status-card.ditolak .status-text {
-  color: #991b1b;
-}
-
-/*BAGIAN PENDING (Abu-abu)*/
-
-.status-card.pending {
-  background: #f8fafc;
-  border: 2px solid #cbd5e1;
-}
-
-.status-card.pending .status-judul {
-  color: #475569;
-}
-
-.status-card.pending .status-text {
-  color: #64748b;
+  .status-card { padding: 28px 20px; }
+  .status-icon { font-size: 2.2rem; }
+  .status-judul { font-size: 1.1rem; }
 }

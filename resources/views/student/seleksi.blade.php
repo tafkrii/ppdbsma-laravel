@@ -8,11 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <div class="overlay" id="overlay" onclick="tutupSidebar()"></div>
 
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-top">
       <img src="img/logo.png" alt="Logo" class="logo" />
-      <span class="app-name">PPDB Online</span>
+      <span class="app-name">PPDB SMAN 2 Tanjung</span>
     </div>
     <nav class="nav">
       <a href="/dashboard" class="nav-item">Dashboard</a>
@@ -22,7 +23,7 @@
       <div class="user-info">
         <div class="avatar">{{ strtoupper(substr($student->nama_lengkap, 0, 1)) }}</div>
         <div>
-          <p class="user-name">{{ $student->nama_lengkap }}</p>
+          <p class="user-name">{{ $user->name }}</p>
           <p class="user-role">Calon Pendaftar</p>
         </div>
       </div>
@@ -35,6 +36,7 @@
 
   <main class="main">
     <div class="topbar">
+      <button class="hamburger" onclick="bukaSidebar()">☰</button>
       <h1>Status Seleksi</h1>
     </div>
 
@@ -74,6 +76,17 @@
 
     </div>
   </main>
+  <script>
+    function bukaSidebar() {
+      document.getElementById('sidebar').classList.add('aktif');
+      document.getElementById('overlay').classList.add('aktif');
+    }
+
+    function tutupSidebar() {
+      document.getElementById('sidebar').classList.remove('aktif');
+      document.getElementById('overlay').classList.remove('aktif');
+    }
+  </script>
 
 </body>
 </html>

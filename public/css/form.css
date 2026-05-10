@@ -158,3 +158,22 @@ h1 {
 }
 
 .btn:hover { background: #2d7bbf; }
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+ 
+  .card {
+    padding: 24px 16px;
+  }
+ 
+  .row-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+ 
+  .radio-group {
+    gap: 6px 12px;
+  }
+}

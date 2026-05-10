@@ -124,3 +124,10 @@ h1 {
 }
 
 .alt a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .card {
+    padding: 28px 20px;
+    margin: 16px;
+  }
+}

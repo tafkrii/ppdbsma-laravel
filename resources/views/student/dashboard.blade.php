@@ -8,11 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <div class="overlay" id="overlay" onclick="tutupSidebar()"></div>
 
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-top">
       <img src="img/logo.png" alt="Logo" class="logo" />
-      <span class="app-name">PPDB Online</span>
+      <span class="app-name">PPDB SMAN 2 Tanjung</span>
     </div>
     <nav class="nav">
       <a href="/dashboard" class="nav-item active">Dashboard</a>
@@ -38,8 +39,10 @@
 
   <main class="main">
     <div class="topbar">
+      <button class="hamburger" onclick="bukaSidebar()">☰</button>
       <h1>Dashboard</h1>
     </div>
+
     <div class="content">
 
       @if(session('success'))
@@ -85,16 +88,28 @@
       @else
         <div class="info-box">
           <p class="info-title">Data Pendaftaran Kamu</p>
-          <p class="info-sub">Nama Lengkap &nbsp;: {{ $student->nama_lengkap }}</p>
-          <p class="info-sub">NISN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $student->nisn }}</p>
-          <p class="info-sub">Sekolah Asal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $student->nama_sekolah_asal }}</p>
-          <p class="info-sub">Jalur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ str_replace('_', ' ', $student->jalur_masuk) }}</p>
-          <p class="info-sub">Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ ucfirst($student->status) }}</p>
+          <p class="info-sub">Nama Lengkap : {{ $student->nama_lengkap }}</p>
+          <p class="info-sub">NISN : {{ $student->nisn }}</p>
+          <p class="info-sub">Sekolah Asal : {{ $student->nama_sekolah_asal }}</p>
+          <p class="info-sub">Jalur : {{ str_replace('_', ' ', $student->jalur_masuk) }}</p>
+          <p class="info-sub">Status : {{ ucfirst($student->status) }}</p>
         </div>
       @endif
 
     </div>
   </main>
+
+  <script>
+    function bukaSidebar() {
+      document.getElementById('sidebar').classList.add('aktif');
+      document.getElementById('overlay').classList.add('aktif');
+    }
+
+    function tutupSidebar() {
+      document.getElementById('sidebar').classList.remove('aktif');
+      document.getElementById('overlay').classList.remove('aktif');
+    }
+  </script>
 
 </body>
 </html>

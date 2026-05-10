@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Edit Status | PPDB Admin</title>
+  <title>Edit Status | PPDB SMAN 2 Tanjung</title>
   <link rel="stylesheet" href="/css/admin.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
-
-  <aside class="sidebar">
+  <div class="overlay" id="overlay" onclick="tutupSidebar()"></div>
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-top">
-      <img src="img/logo.png" alt="Logo" class="logo" />
+      <img src="/img/logo.png" alt="Logo" class="logo" />
       <span class="app-name">PPDB Admin</span>
     </div>
     <nav class="nav">
@@ -34,6 +34,7 @@
 
   <main class="main">
     <div class="topbar">
+      <button class="hamburger" onclick="bukaSidebar()">☰</button>
       <h1>Edit Status Pendaftar</h1>
     </div>
 
@@ -41,10 +42,10 @@
       <div class="edit-card">
 
         <div class="edit-info">
-          <p><span>Nama</span>{{ $student->nama_lengkap }}</p>
-          <p><span>NISN</span>{{ $student->nisn }}</p>
-          <p><span>Jalur</span>{{ str_replace('_', ' ', $student->jalur_masuk) }}</p>
-          <p><span>Status Sekarang</span>
+          <p><span>Nama: </span>{{ $student->nama_lengkap }}</p>
+          <p><span>NISN: </span>{{ $student->nisn }}</p>
+          <p><span>Jalur: </span>{{ str_replace('_', ' ', $student->jalur_masuk) }}</p>
+          <p><span>Status Sekarang: </span>
             <span class="badge {{ $student->status }}">{{ ucfirst($student->status) }}</span>
           </p>
         </div>
@@ -68,6 +69,18 @@
       </div>
     </div>
   </main>
+
+  <script>
+    function bukaSidebar() {
+      document.getElementById('sidebar').classList.add('aktif');
+      document.getElementById('overlay').classList.add('aktif');
+    }
+
+    function tutupSidebar() {
+      document.getElementById('sidebar').classList.remove('aktif');
+      document.getElementById('overlay').classList.remove('aktif');
+    }
+  </script>
 
 </body>
 </html>

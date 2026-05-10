@@ -38,7 +38,7 @@ class StudentController extends Controller
             return redirect('/dashboard')->with('info', 'Silakan isi form pendaftaran terlebih dahulu.');
         }
 
-        return view('student.seleksi', compact('student'));
+        return view('student.seleksi', compact('student', 'user'));
     }
 
     public function store(Request $request)
