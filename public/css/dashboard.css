@@ -92,7 +92,6 @@ body {
   background: rgba(0, 0, 0, 0.4);
   z-index: 99;
 }
-/* Class 'aktif' ditambah via JavaScript saat hamburger diklik */
 .overlay.aktif { display: block; }
 
 /* ==============================
@@ -110,9 +109,7 @@ body {
 .topbar h1 { font-size: 1.3rem; font-weight: 600; color: #1a2a3a; }
 
 /* ==============================
-   TOMBOL HAMBURGER (☰)
-   Default: disembunyikan di desktop
-   Hanya muncul di mobile via @media
+   HAMBURGER
    ============================== */
 .hamburger {
   display: none;
